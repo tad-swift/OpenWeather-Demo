@@ -26,11 +26,17 @@ struct ResultView: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: image)
-                .resizable()
-                .frame(width: 100, height: 100)
-            Text(result.location.name ?? "")
-                .bold()
+            VStack {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                Text(result.weather.weather?.first?.description ?? "")
+            }
+            VStack {
+                Text(result.location.name ?? "")
+                    .bold()
+                
+            }
             Spacer()
             Text("\(result.weather.main?.temp ?? 0)")
         }

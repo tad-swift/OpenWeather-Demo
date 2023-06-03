@@ -12,7 +12,11 @@ enum ImageCache {
     static let basePath = "\(FileManager.documentDirectory)/images"
     
     static func getImage(named name: String) -> UIImage? {
-        UIImage()
+        let path = "\(basePath)/\(name)"
+        if let data = FileManager.default.contents(atPath: path) {
+            return UIImage(data: data)
+        }
+        return nil
     }
     
     static func save(imageName: String, imageData: Data) {

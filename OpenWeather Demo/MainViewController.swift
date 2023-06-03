@@ -28,10 +28,11 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        setUIForSizeClass()
     }
     
-    private func setupLayout() {
+    // iphones and small devices
+    private func setupSmallLayout() {
         view.addSubview(searchBar)
         view.addSubview(searchResultsContainer.view)
         NSLayoutConstraint.activate([
@@ -45,6 +46,36 @@ class MainViewController: UIViewController {
             searchResultsContainer.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             searchResultsContainer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    // ipad and other large devices
+    private func setupLargeLayout() {
+        view.addSubview(searchBar)
+        view.addSubview(searchResultsContainer.view)
+        NSLayoutConstraint.activate([
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            searchBar.heightAnchor.constraint(equalToConstant: 44),
+            
+            searchResultsContainer.view.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            searchResultsContainer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchResultsContainer.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchResultsContainer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func setUIForSizeClass() {
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
+            setupLargeLayout()
+        } else {
+            setupSmallLayout()
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setUIForSizeClass()
     }
 
 }
