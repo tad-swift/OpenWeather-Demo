@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import CoreLocation
 
 class MainViewController: UIViewController {
     
@@ -25,10 +26,14 @@ class MainViewController: UIViewController {
         searchResultsContainer.view.translatesAutoresizingMaskIntoConstraints = false
         return searchResultsContainer
     }()
+    
+    let manager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager.delegate = self
         setUIForSizeClass()
+        getLocationPermission()
     }
     
     // iphones and small devices
@@ -86,6 +91,29 @@ extension MainViewController: UISearchBarDelegate {
         if let text = searchBar.text, !text.isEmpty {
             searchResultsViewModel.search(text)
         }
+    }
+}
+
+// MARK: - User Location
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        let loc = (location.coordinate.latitude, location.coordinate.longitude)
+        searchResultsViewModel.getWeather(location: loc)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+        default:
+            break
+        }
+    }
+    
+    func getLocationPermission() {
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 }
 

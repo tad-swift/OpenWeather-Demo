@@ -33,4 +33,16 @@ final class SearchResultsProvider<G: Geocoder, W: WeatherFetcher> {
         return localResults
     }
     
+    func getWeather(location: (lat: Double, lon: Double)) async -> SearchResult? {
+        let weatherQuery = WeatherQuery(coords: (location.lat, location.lon))
+        let reverseGeoQuery = GeocoderQuery(location: location)
+        let locations = await locationFetcher.fetchLocations(query: reverseGeoQuery)
+        let weatherResult = await weatherFetcher.fetchResult(weatherQuery)
+        if let location = locations.first, let weatherResult {
+            let result = SearchResult(location: location, weather: weatherResult)
+            return result
+        }
+        return nil
+    }
+    
 }
