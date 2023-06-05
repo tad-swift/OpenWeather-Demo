@@ -33,12 +33,12 @@ struct ResultView: View {
                 Text(result.weather.weather?.first?.description ?? "")
             }
             VStack {
-                Text(result.location.name ?? "")
+                Text("\(result.location.name ?? ""), \(result.location.country ?? "")")
                     .bold()
                 
             }
             Spacer()
-            Text("\(result.weather.main?.temp ?? 0)")
+            Text("\(result.weather.main?.temp ?? 0) Kelvin")
         }
         .task {
             if let icon = result.weather.weather?.first?.icon {
