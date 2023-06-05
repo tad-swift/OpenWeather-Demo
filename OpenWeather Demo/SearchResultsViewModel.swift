@@ -12,6 +12,7 @@ final class SearchResultsViewModel<G: Geocoder, W: WeatherFetcher>: ObservableOb
     private(set) var searchResultsProvider: SearchResultsProvider<G, W>
     
     @Published var results: [SearchResult] = []
+    @Published var myWeatherResult: SearchResult? = nil
     
     init(searchResultsProvider: SearchResultsProvider<G, W> = SearchResultsProvider(weatherFetcher: OpenWeatherFetcher(), locationFetcher: OpenWeatherLocationFetcher())) {
         self.searchResultsProvider = searchResultsProvider
@@ -27,7 +28,6 @@ final class SearchResultsViewModel<G: Geocoder, W: WeatherFetcher>: ObservableOb
             let localResults = await searchResultsProvider.search(query: text)
             await MainActor.run {
                 self.results = localResults
-                
             }
         }
     }
@@ -36,7 +36,9 @@ final class SearchResultsViewModel<G: Geocoder, W: WeatherFetcher>: ObservableOb
         Task.detached(priority: .utility) { [weak self] in
             guard let self else { return }
             if let result = await searchResultsProvider.getWeather(location: location) {
-                self.results.insert(result, at: 0)
+                await MainActor.run {
+                    self.myWeatherResult = result
+                }
             }
         }
     }

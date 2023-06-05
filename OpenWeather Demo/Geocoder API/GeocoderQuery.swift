@@ -31,7 +31,7 @@ final class GeocoderQuery {
             let query = names
                 .compactMap { $0 }
                 .joined(separator: ",")
-                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             components.queryItems?.append(URLQueryItem(name: "q", value: query))
         }
         components.queryItems?.append(URLQueryItem(name: "appid", value: Constants.APIKEY))

@@ -12,9 +12,25 @@ struct SearchResultsView: View {
     @ObservedObject var viewModel: SearchResultsViewModel<OpenWeatherLocationFetcher, OpenWeatherFetcher>
     
     var body: some View {
-        List(viewModel.results) { result in
-            ResultView(result: result)
+        LazyVStack {
+            if let myWeatherResult = viewModel.myWeatherResult {
+                VStack {
+                    Text("Weather for current Location")
+                        .padding()
+                    ResultView(result: myWeatherResult)
+                }
+                .background {
+                    Color(.sRGB, red: 0, green: 0, blue: 1, opacity: 0.2)
+                }
+                .padding(.top)
+            }
+            ForEach(viewModel.results) { result in
+                Divider()
+                ResultView(result: result)
+            }
         }
+        .padding(.horizontal)
+        Spacer()
     }
 }
 
