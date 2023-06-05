@@ -119,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				45DCE90F2A2E390E00F334D7 /* README.md */,
+				45DCE9102A2E3B0D00F334D7 /* simulator.gif */,
 				456F9CFD2A295A1F005529FE /* OpenWeather Demo */,
 				456F9D142A295A1F005529FE /* OpenWeather DemoTests */,
 				456F9D1E2A295A1F005529FE /* OpenWeather DemoUITests */,
@@ -150,7 +151,6 @@
 				45C074C42A2AEBEA00D00170 /* SearchResultsViewModel.swift */,
 				45C074C62A2AED2400D00170 /* SearchResultsView.swift */,
 				456F9D022A295A1F005529FE /* MainViewController.swift */,
-				45DCE9102A2E3B0D00F334D7 /* simulator.gif */,
 				456F9D042A295A1F005529FE /* Main.storyboard */,
 				456F9D072A295A1F005529FE /* Assets.xcassets */,
 				456F9D092A295A1F005529FE /* LaunchScreen.storyboard */,
