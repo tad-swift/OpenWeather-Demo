@@ -34,6 +34,7 @@
 		45C074E02A2B7F9200D00170 /* WeatherFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C074DF2A2B7F9200D00170 /* WeatherFetcherTests.swift */; };
 		45C074E22A2B80D000D00170 /* LocationFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C074E12A2B80D000D00170 /* LocationFetcherTests.swift */; };
 		45CB65532A29A7B300734B01 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CB65522A29A7B300734B01 /* Constants.swift */; };
+		45DCE9112A2E3B0D00F334D7 /* simulator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45DCE9102A2E3B0D00F334D7 /* simulator.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		45C074DF2A2B7F9200D00170 /* WeatherFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcherTests.swift; sourceTree = "<group>"; };
 		45C074E12A2B80D000D00170 /* LocationFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcherTests.swift; sourceTree = "<group>"; };
 		45CB65522A29A7B300734B01 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		45DCE90F2A2E390E00F334D7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		45DCE9102A2E3B0D00F334D7 /* simulator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = simulator.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +149,12 @@
 				45C074C42A2AEBEA00D00170 /* SearchResultsViewModel.swift */,
 				45C074C62A2AED2400D00170 /* SearchResultsView.swift */,
 				456F9D022A295A1F005529FE /* MainViewController.swift */,
+				45DCE9102A2E3B0D00F334D7 /* simulator.gif */,
 				456F9D042A295A1F005529FE /* Main.storyboard */,
 				456F9D072A295A1F005529FE /* Assets.xcassets */,
 				456F9D092A295A1F005529FE /* LaunchScreen.storyboard */,
 				456F9D0C2A295A1F005529FE /* Info.plist */,
+				45DCE90F2A2E390E00F334D7 /* README.md */,
 			);
 			path = "OpenWeather Demo";
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456F9D0B2A295A1F005529FE /* LaunchScreen.storyboard in Resources */,
+				45DCE9112A2E3B0D00F334D7 /* simulator.gif in Resources */,
 				456F9D082A295A1F005529FE /* Assets.xcassets in Resources */,
 				456F9D062A295A1F005529FE /* Main.storyboard in Resources */,
 			);
