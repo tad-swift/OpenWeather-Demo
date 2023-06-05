@@ -118,6 +118,7 @@
 		456F9CF22A295A1F005529FE = {
 			isa = PBXGroup;
 			children = (
+				45DCE90F2A2E390E00F334D7 /* README.md */,
 				456F9CFD2A295A1F005529FE /* OpenWeather Demo */,
 				456F9D142A295A1F005529FE /* OpenWeather DemoTests */,
 				456F9D1E2A295A1F005529FE /* OpenWeather DemoUITests */,
@@ -154,7 +155,6 @@
 				456F9D072A295A1F005529FE /* Assets.xcassets */,
 				456F9D092A295A1F005529FE /* LaunchScreen.storyboard */,
 				456F9D0C2A295A1F005529FE /* Info.plist */,
-				45DCE90F2A2E390E00F334D7 /* README.md */,
 			);
 			path = "OpenWeather Demo";
 			sourceTree = "<group>";
